@@ -1,0 +1,252 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Alumni Sans";
+  src: url("/fonts/AlumniSans-VariableFont_wght.ttf");
+}
+
+body {
+  background-color: #100F0F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+header #burger, header [for=burger] {
+  display: none;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 30px;
+}
+
+header ul a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  header .container {
+    width: 80%;
+  }
+  header [for=burger] {
+    display: block;
+    position: fixed;
+    width: 30px;
+    z-index: 3;
+    text-align: left;
+    right: 20px;
+    top: 10px;
+  }
+  header [for=burger]::before {
+    zoom: 2;
+    content: '☰';
+  }
+  header nav {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    background: #1E1E1F;
+    width: 35%;
+    height: 25%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  header ul {
+    padding: 2% 3%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: left;
+  }
+  header ul li {
+    width: 80%;
+    border-bottom: 1px solid #33FF00;
+  }
+  header #burger:checked + label + nav {
+    display: block;
+    -webkit-animation: show .5s ease;
+            animation: show .5s ease;
+  }
+  header #burger:checked + [for=burger]::before {
+    content: '✖';
+    zoom: 2;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.banner::before {
+  content: "";
+  display: block;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(13.33%, #100F0F), color-stop(33.65%, transparent));
+  background-image: linear-gradient(180deg, #100F0F 13.33%, transparent 33.65%);
+}
+
+.banner .sub_banner {
+  height: 100%;
+  width: 100%;
+}
+
+.slider {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  justify-items: center;
+  -webkit-animation: slider 10s ease;
+          animation: slider 10s ease;
+      grid-template-areas: ". . h3 . ." "l1 . l2 . l1" "l1 . l2 . l1";
+}
+
+.slider h3 {
+  color: #33FF00;
+  font-family: "Alumni Sans";
+  font-size: 48px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: h3;
+}
+
+.slider img {
+  width: 340px;
+  height: 280px;
+}
+
+.slider h1 {
+  font-weight: 500;
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 32px;
+}
+
+.slider p {
+  width: 340px;
+  color: #6D6D6D;
+  font-family: "Alumni Sans";
+  font-size: 18px;
+}
+
+.slider div {
+  width: 340px;
+}
+
+.slider figcaption {
+  padding: 5px;
+  background-color: #1E1E1F;
+}
+
+.slider .list1 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: l1;
+  -webkit-animation: slider1 10s ease;
+          animation: slider1 10s ease;
+}
+
+.slider .list2 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: l2;
+  -webkit-animation: slider2 10s ease;
+          animation: slider2 10s ease;
+}
+
+.slider .list3 {
+  grid-area: l3;
+  -webkit-animation: slider3 10s ease;
+          animation: slider3 10s ease;
+}
+
+footer {
+  position: absolute;
+  display: block;
+  left: 5%;
+  width: 90%;
+  border-top: 2PX SOLID #33FF00;
+  margin-top: 3%;
+  padding: 2% 0.5% 2% 2%;
+}
+
+footer li {
+  list-style: none;
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 20px;
+}
+
+footer .container_footer {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: " lg lg . .  tm  sm";
+}
+
+footer .soc_media {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: sm;
+}
+
+footer .time {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: tm;
+}
+
+footer .logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: lg;
+}
+
+footer .logo img {
+  width: 100%;
+  max-width: 150px;
+}
+/*# sourceMappingURL=main_page.css.map */

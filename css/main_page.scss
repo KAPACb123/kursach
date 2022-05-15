@@ -1,0 +1,219 @@
+@font-face{
+    font-family: "Alumni Sans";
+    src : url("/fonts/AlumniSans-VariableFont_wght.ttf");
+
+}
+$cl1:#100F0F;
+$cl2:#FFFFFF;
+$cl3:#1E1E1F;
+$cl4:#6D6D6D;
+$cl5:#33FF00;
+
+$b_size:48px;
+$m_size:36px;
+$sm_size:18px;
+
+$alum:'Alumni Sans';
+
+$wid_sl:340px;
+
+@mixin text($key-fs,$key_color,$key_font-family) {  
+
+    color: $key_color;
+    font-family: $key_font-family;
+    font-size: $key-fs;
+   }
+
+   
+body{
+    background-color: $cl1;
+}
+
+*{
+    margin:0;
+    padding: 0;
+    color:$cl2;
+}
+header{
+    
+    #burger, [for=burger]{
+        display: none;
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style: none;
+
+        @include text(30px,$cl2,$alum);
+        a{
+            text-decoration: none;
+        }
+        
+    }
+    @media screen and (max-width: 500px) {
+        .container{
+            width: 80%;
+        }          
+        [for=burger]{
+            display: block;
+            position: fixed;
+            width: 30px;
+            z-index: 3;
+            text-align: left;
+            right: 20px;
+            top: 10px;
+        }
+        [for=burger]::before{
+            zoom:2;
+            content: '☰';
+        }
+        nav{
+            display: none;
+            position: fixed;
+            z-index: 2;
+            top:0;
+            background: $cl3;
+            width: 35%;
+            height: 25%;
+            user-select: none;
+        }
+        ul{
+            padding: 2% 3%;
+            flex-direction: column;
+            text-align: left;
+            li{
+                width: 80%;
+                border-bottom: 1px solid $cl5;
+            }
+        }
+
+        #burger:checked + label + nav{
+            display: block;
+            animation: show .5s ease;
+        }
+        #burger:checked +[for=burger]::before{
+            content: '✖';
+            zoom:2;
+        }
+    }
+    
+    @keyframes show {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+}
+
+.banner{
+    &::before{
+        content: "";
+	    display: block;
+        z-index: 2;    
+	    width: 100%;
+	    height: 100%;    
+	    position:absolute;
+	    top: 0;      
+	    left: 0;   
+	    background: transparent;
+        background-image:linear-gradient(180deg, $cl1 13.33%, rgba(0,0,0,0) 33.65%);}
+
+    .sub_banner{
+    
+        height: 100%;
+        width: 100%; 
+}
+}
+
+.slider{
+    display: grid;
+    justify-content: space-evenly;
+    justify-items: center;
+    animation:slider 10s ease;
+    grid-template-areas: ". . h3 . ."
+                        "l1 . l2 . l1"
+                        "l1 . l2 . l1";
+    h3{
+        @include text($b_size,$cl5,$alum);
+        grid-area: h3;
+    }
+
+    img{
+        width: $wid_sl;
+        height: 280px;
+    }
+
+    h1{
+        font-weight: 500;
+        @include text(32px,$cl2,$alum)
+        
+    }
+
+    p{
+        width:$wid_sl;
+        @include text(18px,$cl4,$alum);
+    }
+
+    div{
+        width:$wid_sl;
+    }
+
+    figcaption{
+        padding: 5px;
+        background-color: $cl3;
+    }
+
+    .list1{
+        grid-area: l1;
+        animation:slider1 10s ease;
+    }
+
+    .list2{
+        grid-area: l2;
+        animation:slider2 10s ease;
+    }
+
+    .list3{
+        grid-area: l3;
+        animation:slider3 10s ease;
+    }
+}
+
+footer{
+    position: absolute;
+    display: block;
+    left: 5%;
+    width: 90%;
+    border-top:2PX SOLID $cl5;
+    margin-top: 3%;
+    padding: 2% 0.5% 2% 2%;
+
+    li{
+        list-style: none;
+        @include text(20px,$cl2,$alum)
+    }
+    .container_footer{
+        display: grid;
+        grid-template-areas: " lg lg . .  tm  sm";
+    }
+
+    .soc_media{
+        grid-area: sm;
+    }
+
+    .time{
+        grid-area: tm;
+    }
+
+    .logo{
+        grid-area: lg;
+        img{
+            width:100%;
+            max-width: 150px;
+        }
+    }
+    
+}

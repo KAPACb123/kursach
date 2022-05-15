@@ -1,0 +1,28 @@
+!<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="zad2.css"?>
+<!DOCTYPE DATA [
+<!ELEMENT DATA (NAME,ADRESS,TIME)>
+<!ELEMENT NAME (#PCDATA)>
+<!ELEMENT ADRESS (#PCDATA)>
+<!ELEMENT TIME (#PCDATA)>
+]>
+<DATA>
+    <DATAITEM>
+        <NAME>Бекиш Александр Сергеевич</NAME>
+        <ADRESS>ул.Белорусская 21</ADRESS>
+        <TIME>13.00</TIME>
+    </DATAITEM>
+
+     <DATAITEM>
+        <NAME>Иванов Иван Иванович</NAME>
+        <ADRESS>ул.Пушкина 7</ADRESS>
+        <TIME>14.20</TIME>
+    </DATAITEM>
+
+      <DATAITEM>
+        <NAME>Сергеев Сергей Сергеевич</NAME>
+        <ADRESS>пл.Ленина 9</ADRESS>
+        <TIME>17.00</TIME>
+    </DATAITEM>
+
+</DATA>

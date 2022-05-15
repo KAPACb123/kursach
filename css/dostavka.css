@@ -1,0 +1,212 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Alumni Sans";
+  src: url("/fonts/AlumniSans-VariableFont_wght.ttf");
+}
+
+body {
+  background-color: #100F0F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+header #burger, header [for=burger] {
+  display: none;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 30px;
+}
+
+header ul a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  header .container {
+    width: 80%;
+  }
+  header [for=burger] {
+    display: block;
+    position: fixed;
+    width: 30px;
+    z-index: 3;
+    text-align: left;
+    right: 20px;
+    top: 10px;
+  }
+  header [for=burger]::before {
+    zoom: 2;
+    content: '☰';
+  }
+  header nav {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    background: #1E1E1F;
+    width: 35%;
+    height: 25%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  header ul {
+    padding: 2% 3%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: left;
+  }
+  header ul li {
+    width: 80%;
+    border-bottom: 1px solid #33FF00;
+  }
+  header #burger:checked + label + nav {
+    display: block;
+    -webkit-animation: show .5s ease;
+            animation: show .5s ease;
+  }
+  header #burger:checked + [for=burger]::before {
+    content: '✖';
+    zoom: 2;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+main {
+  padding: 5%;
+  padding-top: 1%;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "hm hm  " "f   lg ";
+}
+
+main h1 {
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 90px;
+  font-weight: 400;
+  margin-bottom: 2%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: hm;
+}
+
+main form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: f;
+  grid-gap: 1%;
+  width: 500px;
+  -ms-grid-rows: (6)[1fr];
+      grid-template-rows: repeat(1fr, 6);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 500px;
+}
+
+main input[type=text] {
+  display: inline-block;
+  border: 2px solid #33FF00;
+  border-radius: 20px;
+  width: 100%;
+  height: 40px;
+  padding-left: 1.5%;
+  background-color: #100F0F;
+  font-size: 24px;
+  font-family: "Alumni Sans";
+}
+
+main .logo {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: lg;
+}
+
+main .logo img {
+  width: 90%;
+  padding: 4%;
+  padding-left: 12%;
+}
+
+@media (max-width: 1000px) {
+  main {
+        grid-template-areas: "hm hm" "f f";
+  }
+  main figure {
+    display: none;
+  }
+}
+
+footer {
+  position: absolute;
+  display: block;
+  left: 5%;
+  width: 90%;
+  border-top: 2PX SOLID #33FF00;
+  margin-top: 3%;
+  padding: 2% 0.5% 2% 2%;
+}
+
+footer li {
+  list-style: none;
+  color: #FFFFFF;
+  font-family: "Alumni Sans";
+  font-size: 20px;
+}
+
+footer .container_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .soc_media {
+  grid-area: sm;
+}
+
+footer .time {
+  grid-area: tm;
+}
+/*# sourceMappingURL=dostavka.css.map */
